@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWep", "AppWep\AppWep.csproj", "{3E189EC2-3522-44E3-87F9-5E229E7C3AE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E189EC2-3522-44E3-87F9-5E229E7C3AE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E189EC2-3522-44E3-87F9-5E229E7C3AE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E189EC2-3522-44E3-87F9-5E229E7C3AE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E189EC2-3522-44E3-87F9-5E229E7C3AE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8A2C51D-0E59-4C9B-82FE-4727F3B7567A}
+	EndGlobalSection
+EndGlobal
