@@ -20,5 +20,11 @@ namespace Negocio
 
         }
 
+        public static bool EsAdmin (object user)
+        {
+            Trainee trainee = user != null ? (Trainee)user : null;
+            return trainee != null ? trainee.Admin : false;
+        }
+
     }
 }
