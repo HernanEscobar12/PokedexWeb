@@ -13,11 +13,22 @@ namespace AppWep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack) 
             {
-               
-
+                if(Session["Trainee"] != null)
+                {
+                    Trainee User = (Trainee)Session["Trainee"];
+                    txtEmail.Text = User.Email;
+                    txtEmail.ReadOnly = true;
+                    txtNombre.Text = User.Nombre;
+                    txtApellido.Text = User.Apellido;
+                    txtFechaNacimiento.Text = User.FechaNacimiento.ToString("yyyy-MM-dd");
+                    if (!string.IsNullOrEmpty(User.ImagenPerfil))
+                        imgNuevoPerfil.ImageUrl = "~/Images/" + User.ImagenPerfil;
+                }
             }
+            
+             
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -50,5 +61,7 @@ namespace AppWep
                 Response.Redirect("Error.aspx", false);
             }
         }
+
+
     }
 }
