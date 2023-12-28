@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace AppWep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!(Page is Login) && !(Page is Registro) && !(Page is Default))
+            if (!(Seguridad.SessionActiva(Session["Trainee"])))
+                Response.Redirect("Login.aspx", false);
 
         }
     }
