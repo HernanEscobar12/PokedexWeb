@@ -14,6 +14,11 @@ namespace AppWep
         public bool FiltroAvanzado { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.EsAdmin(Session["Trainee"]))
+            {
+                Session.Add("Error", "Se requiere permiso 'Admin' para ingresar");
+                Response.Redirect("Error.aspx", false);
+            } 
 
             FiltroAvanzado = chkAvanzado.Checked;
             if (!IsPostBack)
