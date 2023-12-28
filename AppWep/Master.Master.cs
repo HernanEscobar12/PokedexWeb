@@ -14,15 +14,20 @@ namespace AppWep
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!(Page is Login || Page is Registro || Page is Default))
-            if (!(Seguridad.SessionActiva(Session["Trainee"])))
+            if(!(Seguridad.SessionActiva(Session["Trainee"])))
                 Response.Redirect("Login.aspx", false);
 
 
-            if (Seguridad.SessionActiva(Session["Trainee"]))
-
+            if (Seguridad.SessionActiva(Session["Trainee"])) 
+            {
                 imgAvatar.ImageUrl = "~/Images/" + ((Trainee)Session["Trainee"]).ImagenPerfil;
+                lblUser.Text = ((Trainee)Session["Trainee"]).Nombre;
+            }
             else
+            {        
                 imgAvatar.ImageUrl = "https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg?w=740";
+            }
+
 
         }
 
