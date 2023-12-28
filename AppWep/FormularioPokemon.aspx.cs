@@ -66,7 +66,7 @@ namespace AppWep
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex);
+                Session.Add("Error", ex);
                 Response.Redirect("Error.aspx");
             }
         }
@@ -101,7 +101,7 @@ namespace AppWep
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex.ToString());
+                Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
         }
@@ -129,7 +129,7 @@ namespace AppWep
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex.ToString());
+                Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
         }
@@ -142,11 +142,11 @@ namespace AppWep
                 Pokemon seleccionado = (Pokemon)Session["pokeSeleccionado"];
 
                 negocio.EliminarLogico(seleccionado.Id, !seleccionado.Activo);
-                Response.Redirect("PokemonsLista.aspx");
+                Response.Redirect("PokemonsLista.aspx" , false);
             }
             catch (Exception ex)
             {
-                Session.Add("error", ex.ToString());
+                Session.Add("Error", ex.ToString());
                 Response.Redirect("Error.aspx");
             }
         }
