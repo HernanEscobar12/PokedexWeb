@@ -24,6 +24,23 @@ namespace AppWep
         {
             try
             {
+                TraineeNegocio Negocio = new TraineeNegocio();
+
+                //Escribir img
+                string ruta = Server.MapPath("./Images/");
+                Trainee User = (Trainee)(Session["Trainee"]);
+                txtImagen.PostedFile.SaveAs(ruta + "Perfil" + User.Id + ".jpg");
+                User.ImagenPerfil = "Perfil" + User.Id + ".jpg";
+                User.Nombre = txtNombre.Text;
+                User.Apellido = txtApellido.Text;
+                User.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
+                Negocio.Actualizar(User);
+
+                //leer img
+                Image img = (Image)Master.FindControl("imgAvatar");
+                img.ImageUrl = "~/Images/" + User.ImagenPerfil;
+
+
 
             }
             catch (Exception Ex)
