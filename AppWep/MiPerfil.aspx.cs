@@ -22,7 +22,16 @@ namespace AppWep
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+            }
+            catch (Exception Ex)
+            {
+
+                Session.Add("Error", Ex.ToString());
+                Response.Redirect("Error.aspx", false);
+            }
         }
     }
 }
