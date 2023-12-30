@@ -13,20 +13,24 @@ namespace AppWep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!(Page is Login || Page is Registro || Page is Default))
-            if(!(Seguridad.SessionActiva(Session["Trainee"])))
-                Response.Redirect("Login.aspx", false);
-
-
-            if (Seguridad.SessionActiva(Session["Trainee"])) 
+            imgAvatar.ImageUrl = "https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg?w=740";
+            if (!(Page is Login || Page is Registro || Page is Default)) 
             {
-                imgAvatar.ImageUrl = "~/Images/" + ((Trainee)Session["Trainee"]).ImagenPerfil;
-                lblUser.Text = ((Trainee)Session["Trainee"]).Nombre;
+                if(!(Seguridad.SessionActiva(Session["Trainee"])))
+                    Response.Redirect("Login.aspx", false);
+                else
+                {
+                    Trainee User = new Trainee();
+                    lblUser.Text = User.Nombre;
+                    if(!string.IsNullOrEmpty(User.ImagenPerfil))
+                        imgAvatar.ImageUrl = "~/Images/" + User.ImagenPerfil;
+                }
+            
+            
             }
-            else
-            {        
-                imgAvatar.ImageUrl = "https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg?w=740";
-            }
+
+
+           
 
 
         }

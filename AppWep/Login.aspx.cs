@@ -27,10 +27,10 @@ namespace AppWep
                 if(Negocio.Login(trainee))
                 {
                     Session.Add("Trainee", trainee);
-                    Response.Redirect("MiPerfil.aspx", false);
+                    Response.Redirect("Default.aspx", false);
                 }
                 else
-                {
+                { 
                     Session.Add("Error", "Email o Pass Incorrectos");
                     Response.Redirect("Error.aspx", false);
                 }

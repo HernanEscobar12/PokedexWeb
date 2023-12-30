@@ -13,9 +13,9 @@ namespace AppWep
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) 
+            if (!IsPostBack)
             {
-                if(Session["Trainee"] != null)
+                if (Session["Trainee"] != null)
                 {
                     Trainee User = (Trainee)Session["Trainee"];
                     txtEmail.Text = User.Email;
@@ -27,8 +27,8 @@ namespace AppWep
                         imgNuevoPerfil.ImageUrl = "~/Images/" + User.ImagenPerfil;
                 }
             }
-            
-             
+
+
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -36,12 +36,21 @@ namespace AppWep
             try
             {
                 TraineeNegocio Negocio = new TraineeNegocio();
+                Trainee User = (Trainee)(Session["Trainee"]);
 
                 //Escribir img
-                string ruta = Server.MapPath("./Images/");
-                Trainee User = (Trainee)(Session["Trainee"]);
-                txtImagen.PostedFile.SaveAs(ruta + "Perfil" + User.Id + ".jpg");
-                User.ImagenPerfil = "Perfil" + User.Id + ".jpg";
+
+                if (txtImagen.PostedFile.FileName != "")
+                {
+                    string ruta = Server.MapPath("./Images/");
+                    txtImagen.PostedFile.SaveAs(ruta + "Perfil" + User.Id + ".jpg");
+                    User.ImagenPerfil = "Perfil" + User.Id + ".jpg";
+                }
+
+                //string ruta = Server.MapPath("./Images/");
+                //txtImagen.PostedFile.SaveAs(ruta + "Perfil" + User.Id + ".jpg");
+                //User.ImagenPerfil = "Perfil" + User.Id + ".jpg";
+
                 User.Nombre = txtNombre.Text;
                 User.Apellido = txtApellido.Text;
                 User.FechaNacimiento = DateTime.Parse(txtFechaNacimiento.Text);
@@ -51,7 +60,7 @@ namespace AppWep
                 Image img = (Image)Master.FindControl("imgAvatar");
                 img.ImageUrl = "~/Images/" + User.ImagenPerfil;
 
-
+                Response.Redirect("MiPerfil.aspx", false);
 
             }
             catch (Exception Ex)

@@ -16,9 +16,9 @@ namespace Dominio
         public EmailService()
         {
             server = new SmtpClient();
-            server.Credentials = new NetworkCredential("ff01e6ec42e120", "78e6c7a7b640fb");
+            server.Credentials = new NetworkCredential("hernanprograma12@gmail.com", "yquw swac ohnh xqsz");
             server.EnableSsl = true;
-            server.Port = 2525;
+            server.Port = 25;
             server.Host = "smtp.mailtrap.io";
         }
 

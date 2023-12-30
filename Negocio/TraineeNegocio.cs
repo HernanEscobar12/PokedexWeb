@@ -44,8 +44,9 @@ namespace Negocio
             try
             {
                 datos.SetearConsulta("Update USERS set imagenPerfil = @imagen, Nombre = @nombre, Apellido = @apellido, fechaNacimiento = @fecha Where Id = @id");
-                //datos.setearParametro("@imagen", user.ImagenPerfil != null ? user.ImagenPerfil : (object)DBNull.Value);
-                datos.SetearParametro("@imagen", (object)user.ImagenPerfil ?? DBNull.Value);
+                //datos.SetearParametro("@imagen", user.ImagenPerfil != null ? user.ImagenPerfil : (object)DBNull.Value);
+                //datos.SetearParametro("@imagen", user.ImagenPerfil != null ? user.ImagenPerfil : "");
+                datos.SetearParametro("@imagen" , (object)user.ImagenPerfil ??  DBNull.Value);
                 datos.SetearParametro("@nombre", user.Nombre);
                 datos.SetearParametro("@apellido", user.Apellido);
                 datos.SetearParametro("@fecha", user.FechaNacimiento);
