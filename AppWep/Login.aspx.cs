@@ -18,12 +18,19 @@ namespace AppWep
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            try
-            {
                 TraineeNegocio Negocio = new TraineeNegocio();
                 Trainee trainee = new Trainee();
+            try
+            {
+
+                if (Validacion.ValidaTextoVacio(txtEmail) || Validacion.ValidaTextoVacio(txtPassword))
+                {
+                    Session.Add("Error", "Debes completar ambos campos");
+                    Response.Redirect("Error.aspx");
+                }
                 trainee.Email = txtEmail.Text;
                 trainee.Pass = txtPassword.Text;
+
                 if(Negocio.Login(trainee))
                 {
                     Session.Add("Trainee", trainee);
@@ -37,6 +44,7 @@ namespace AppWep
                 
 
             }
+            catch(System.Threading.ThreadAbortException ex){}
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
