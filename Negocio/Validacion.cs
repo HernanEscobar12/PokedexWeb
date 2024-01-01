@@ -15,9 +15,9 @@ namespace Negocio
             if(control is TextBox Texto)
             {
                 if (string.IsNullOrEmpty(Texto.Text))
-                    return false;
-                else
                     return true;
+                else
+                    return false;
             }
 
             return false;

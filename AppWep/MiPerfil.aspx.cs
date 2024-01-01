@@ -35,6 +35,11 @@ namespace AppWep
         {
             try
             {
+                Page.Validate();
+                if(!Page.IsValid)
+                    return;
+                
+
                 TraineeNegocio Negocio = new TraineeNegocio();
                 Trainee User = (Trainee)(Session["Trainee"]);
 

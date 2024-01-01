@@ -28,6 +28,8 @@ namespace AppWep
                     Session.Add("Error", "Debes completar ambos campos");
                     Response.Redirect("Error.aspx");
                 }
+
+
                 trainee.Email = txtEmail.Text;
                 trainee.Pass = txtPassword.Text;
 
@@ -44,7 +46,7 @@ namespace AppWep
                 
 
             }
-            catch(System.Threading.ThreadAbortException ex){}
+            catch(System.Threading.ThreadAbortException){}
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
