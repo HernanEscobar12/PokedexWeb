@@ -21,6 +21,7 @@ namespace AppWep
                 else
                 {
                     Trainee User = new Trainee();
+                    User = (Trainee)Session["Trainee"];
                     lblUser.Text = User.Nombre;
                     if(!string.IsNullOrEmpty(User.ImagenPerfil))
                         imgAvatar.ImageUrl = "~/Images/" + User.ImagenPerfil;
