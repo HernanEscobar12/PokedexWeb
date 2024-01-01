@@ -14,7 +14,7 @@ namespace AppWep
         protected void Page_Load(object sender, EventArgs e)
         {
             imgAvatar.ImageUrl = "https://img.freepik.com/premium-vector/user-profile-icon-flat-style-member-avatar-vector-illustration-isolated-background-human-permission-sign-business-concept_157943-15752.jpg?w=740";
-            if (!(Page is Login || Page is Registro || Page is Default)) 
+            if (!(Page is Login || Page is Registro || Page is Default || Page is Error)) 
             {
                 if(!(Seguridad.SessionActiva(Session["Trainee"])))
                     Response.Redirect("Login.aspx", false);
